@@ -1,0 +1,822 @@
+What is cloud Computing:
+-------------------------
+    -> it is a on demand delivery of the resources like storage, server, network, compute power,
+        etc and it will provide by pay on used bases.
+    -> all the cloud computing service we can access from internet only.
+
+Top Company of cloud computing:
+-------------------------------
+    1. AWS
+    2. Microsoft AZure
+    3. ALIBaba Cloud
+    4. VMware
+    5. IBM Cloud
+
+Characteristics Of Cloud:
+------------------------
+    1. On demand service
+    2. pay on uses.
+    3. easy to extend
+    4. easy to manage.
+    5. Resource polling
+
+Service Model:
+--------------
+    1. IAAS (infrastructure as a service)
+    2. PAAs (platform as a service)
+    3. SAAS (software as a service)
+
+    -> OSI model contains the following layers:
+    --------------------------------------------
+        
+
+                                --------------------------
+               /|\              |     Application        |
+                |               |------------------------|
+                |               |     Data               |
+                |               |------------------------|
+                |          /|\  |     Routing            |
+                |           |   |------------------------|
+                |           |   |     Middleware         |
+                |           |   |------------------------|
+        SAAS    |           |   |     O.S                | /|\         
+                |           |   |------------------------|  |
+                |           |   |     Virtualization     |  |
+                |   PAAs    |   |------------------------|  |
+                |           |   |     Server             |  | IAAS 
+                |           |   |------------------------|  |
+                |           |   |     Storage            |  |
+                |           |   |------------------------|  |
+               \|/         \|/  |     Network            | \|/
+                                --------------------------                                                                                                                                                                                                                                                                                                                                                                                                
+
+
+
+                                OSI 7 layer model
+                                ------------------
+
+                                --------------------------
+                                |     Application        |
+                                |------------------------|
+                                |     Presentation       |
+                                |------------------------|
+                                |     Session layer      | 
+                                |------------------------|  
+                                |     Transport layer    |  
+                                |------------------------|  
+                                |     Network Layer      |    
+                                |------------------------|  
+                                |     Data link layer    |  
+                                |------------------------|  
+                                |     physical Layer     | 
+                                --------------------------    
+
+
+Deployment Model of cloud:
+--------------------------
+    1. public cloud => like aws, azure etc
+    2. private cloud => some company used this cloud to store confidential data  
+    3. hybrid cloud => mixture of public and private
+
+
+What is EC2:
+------------
+    -> Elastic Computing cloud.
+    -> Pay on use bases.
+    -> on demand resource provide.
+    -> easy to scalable
+    -> provide resource polling.
+    -> by default in each region we can create 20 ec2 instance if we want to create  more then 
+        20 then we have to connect with amazon and can extend the limit  of ec2.
+
+    -> for mor detail please refer https://aws.amazon.com/ec2/instance-types/
+
+
+Type Of EC2 Instance:
+---------------------
+
+                                Type Of EC2 Instance
+                                --------------------
+                                        |
+        ----------------------------------------------------------------------------------------
+        |           |        |          |         |                 |                   |       
+    General Purpose | Compute Optimized |    Memory Optimized  Storage Optimized    High Memory
+                    |                   |    (reserved instance)            (dedicated hosts options in ec2)
+                    |                   |
+                    |                   |
+            Accelerated Computing   Previous Generation
+
+    -> General Purpose = balanced memory  & CPU
+    -> Compute Optimized = more CPU
+    -> Memory Optimized = more memory
+    -> Storage Optimized = high storage and low latency
+    -> Accelerated Computing = graphic Optimized
+    -> High Memory = High Ram Nitro System.
+
+    Compute Optimized:
+    ------------------
+        -> it is basically used for compute bound application that benefits from high performance resource
+        -> currently 6 type Available
+            -> c4, c5, c5a, c5n, c6g, c6gn
+        -> c4 don't use the nitro system hypervisor but rest all are using.
+        -> it's having both type storage EBS ans NVM SSd (nvm ssd present in high cost instance only)
+        -> C5 support max 25 EBS volumes
+    
+    Memory Optimized:
+    ---------------
+        -> Memory optimized instances are designed to deliver fast performance for workloads that process large data sets in memory.
+        -> currently having in 3 series
+            -> R series
+            -> X series 
+            -> Z series
+        -> if any instance having such type of name that means it's belong to memory optimized
+    Storage Optimized:
+    -------------------
+        -> Storage optimized instances are designed for workloads that require high, sequential 
+            read and write access to very large data sets on local storage. They are optimized 
+            to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) 
+            to applications.
+        -> currently having in 3 series
+            -> I series
+            -> D series 
+            -> H series
+        -> used in massive parallel processing 
+
+    Accelerated Computing:
+    ----------------------
+        -> Accelerated computing instances use hardware accelerators, or co-processors, to perform 
+            functions, such as floating point number calculations, graphics processing, or data pattern
+            matching, more efficiently than is possible in software running on CPUs.
+        -> currently having in 3 series
+            -> P series
+            -> G series 
+            -> F series
+        -> used in live streaming / AI / ML
+        -> it having FPGa(field programable gate array) for better video processing.
+        -> Each FPGA contains 25million Logic elements and 68000 dsp engin.
+    High Memory:
+    ------------
+        -> can parches only from dedicated hosts.
+        -> minimum 3 year bond.
+        -> don't having any hypervisor directly install on bare metal
+        ->Currently having only one series 
+            -> U series.
+
+        -> it contains 448 logical processor 
+        -> generally available in 6, 9, 12TB ram.
+        -> EBS optimized 
+
+Purchasing Options Of EC2 Instance:
+-----------------------------------
+
+                                        Purchasing Options
+                                        ------------------
+                                                |
+        -------------------------------------------------------------------------------------
+        |           |                   |               |               |                   |
+        On-Demand  dedicated-instance  Dedicated-Host  Spot Request   Schedule-instance   Reserved-instance
+                                                                    (Capacity-reservation)
+    Note:
+        -> There are five ways to pay for Amazon EC2 instances: On-Demand, Savings Plans, Reserved Instances,
+            and Spot Instances. You can also pay for Dedicated Hosts which provide 
+            you with EC2 instance capacity on physical servers dedicated for your use.
+        -> visit this link for full details:
+        ----------------------------------
+            https://aws.amazon.com/ec2/pricing/
+        -> 
+
+    1. On-Demand:
+    --------------
+        -> With On-Demand instances, you pay for compute capacity by the hour or the second depending on which instances you run. 
+        -> No longer-term commitments or upfront payments are needed.
+        -> You can increase or decrease your compute capacity depending on  the demands of your application.
+
+        On-Demand instances are recommended for:
+        ---------------------------------------
+            -> user who wants instance without any up-front payment or long-term commitment.
+            -> Applications with short-term, spiky, or unpredictable workloads that cannot be interrupted
+            -> Applications being developed or tested on Amazon EC2 for the first time
+
+
+
+    2.Spot instances:
+    -----------------
+        -> Amazon EC2 Spot instances allow you to request spare Amazon EC2 computing capacity for up to 90% off the On-Demand price.
+
+        Spot instances are recommended for:
+        -----------------------------------
+            -> Applications that have flexible start and end times
+            -> Applications that are only feasible at very low compute prices
+            -> Users with urgent computing needs for large amounts of additional capacity
+
+    3.Savings Plans
+    ---------------
+        -> Savings Plans are a flexible pricing model that offer low prices on EC2 and Fargate usage
+        -> in exchange for a commitment to a consistent amount of usage (measured in $/hour) for a 1 or 3 year term.
+
+    4.Reserved Instances
+        -> Reserved Instances provide you with a significant discount (up to 75%) compared to On-Demand instance pricing.
+        -> In addition, when Reserved Instances are assigned to a specific Availability Zone, they provide a capacity reservation,
+            giving you additional confidence in your ability to launch instances when you need them.
+
+        -> For applications that have steady state or predictable usage.
+        -> Reserved Instances can provide significant savings compared to using On-Demand instances.
+
+        Reserved Instances are recommended for:
+        ----------------------------------------
+            -> Applications with steady state usage
+            -> Applications that may require reserved capacity
+            -> Customers that can commit to using EC2 over a 1 or 3 year term to reduce their total computing costs
+
+    5. Dedicated Hosts
+    --------------------
+        -> A Dedicated Host is a physical EC2 server dedicated for your use.
+        ->  Dedicated Hosts can help you reduce costs by allowing you to use your existing server-bound software licenses,
+             including Windows Server, SQL Server, and SUSE Linux Enterprise Server (subject to your license terms), 
+             and can also help you meet compliance requirements.
+
+        -> Can be purchased 
+        --------------------
+                    1.On-Demand (hourly).
+                    2. Reservation for up to 70% off the On-Demand price.
+
+
+
+
+How to create a EC2 instance in aws:
+------------------------------------
+
+
+
+What is Instance Block Storage
+------------------------------
+What is EBS
+-----------
+How to create copy of one instance into different region.
+---------------------------------------------------------
+How to create copy of one instance into different account.
+---------------------------------------------------------
+How to Create AMI
+------------------
+User Data in EC2:
+-----------------
+    -> user data basically used to run some specific script or command at the time of booting the instances.
+    -> this option you can see in step-3 (configure instance) on EC2 instance creation.
+    -> in bottom you get advance option after that there you get User Data Options.
+    -> basic Script Example which we want to run only once while booting process happen.
+        #!/bin/bash
+        yum -y install httpd
+        echo "<em style='color:blue;'>This Page is served from :`hostname -f`</em>" >> /var/www/html/index.html
+        service httpd start
+
+
+Virtualization in AWS:
+----------------------
+    Definition 1:
+    --------------
+        Virtualization is a Process where we can combine and divide physical resource 
+        into multiple logical resources.
+
+    Definition 2:
+    -------------
+        Virtualization is a process where we can transform hardware into software.
+    
+    Hypervisor:
+    -----------
+        it is a peace of Software and firmware which is responsible to run virtual machine and 
+        some time it is also called the virtual machine manager.
+
+    Types Of Hypervisor:
+    --------------------
+        1. Type 1 (bare metal / Native Hypervisor ) = enterprise 
+        2. Type 2 (Hosted Hypervisor) = testing / learning
+
+    Type1:
+    ------
+        -> it's directly run on the hardware that's way it's called firmware Hypervisor.
+        -> type1 Hypervisor is also called VMware ESXi.
+        -> it abstract all the resources (memory / cpu / rom / ram) and distribute all the resource into 
+            multiple (Guest Server)Virtual machine.
+        -> if you want to make any hardware in Virtualization form then Hypervisor operating system required.
+        -> system independence is high because it's directly connected to the hardware
+        -> performance high
+        -> easy to scalable
+        
+    Type2:
+    ------
+        -> on hardware/host we are installing operating system and on operating system we are installing
+            Hypervisor so type2 also called software Hypervisor.
+        -> so oracle virtual box / VMware workstation / microsoft virtual Pc which we used for learning 
+            purpose is called type2 Hypervisor.
+        -> it directly not run on hardware / host it's always runs on operating system.
+        -> it's don't have the direct access of all hardware / host resource it's always ask from O.S.
+        -> generally we are using for testing purpose.
+        -> less secure
+        -> system independence is low
+        -> performance low
+        -> hard to scalable
+
+    for difference please refer image: hypervisor-diff.png
+
+    VMware VSphere Introduction:
+    ----------------------------
+        -> VMware is a market leader having almost 80% of share.
+        in compare of microsoft and Citrix.
+        -> it is batter than XenServe and hyperV 
+        -> VMware VSphere is a brand name of VMware suite previously this suite called
+            VMware infrastructure.
+        -> VMware VSphere Suite Contains following component:
+            => VMware ESXi
+            => VCenter Server
+            => VSphere Client
+            => VSphere Web client 
+        -> VMware provide the following features:
+            => VMotion
+            => High Availability
+            => Distributed Resource Scheduler (DRS)
+            => Fault tolerance 
+
+        -> what is the difference between VCenter Server and VSphere Client
+
+            VSphere Client:
+            --------------- 
+                -> VSphere client is a interface between the ESXi host(hypervisor) and remote 
+                    user computer from where user want to manage the Virtual machines.
+                -> VSphere client can be connect to a single type1 hypervisor at a single time.
+                    and on that hypervisor multiple virtual machine can be present so this VSphere
+                    client manage multiple virtual machine at a single time but only for that single 
+                    hypervisor.
+                -> didn't connect multiple hypervisor at a same time from this VSphere client so to 
+                    overcome this problem VCenter server Come into picture.
+
+            VCenter Server:
+            ---------------
+                -> VCenter Server is a interface between the **multiple** ESXi host(hypervisor) and remote 
+                    user computer from where user want to manage the Virtual machines.
+                ->  VCenter Server can be connect to a multiple type1 hypervisor at a single time.
+                    and on that hypervisor multiple virtual machine can be present so this VCenter
+                    Server manage multiple virtual machine at a single time for all hypervisor.
+                -> now with the help of this VCenter Server VMotion, DRS, Fault tolerance etc. can easily possible.
+                -> it is a centralized tool.
+                -> VCenter 6.7 includes 2 type of interface flash and HTML5 based.
+                
+    Migration:
+    -----------
+        -> it is a process to move virtual machine from one host(hardware k upper supervisor install) to another host or 
+            from one dataStore to another datastore.
+        -> datastore means VMware config files.
+        -> Types of Migration:
+            1. cold Migration
+            2. suspended migration.
+            3. VMotion
+            4. Physical to Virtual
+            5. Virtual to virtual
+        
+        1. Cold Migration
+        -----------------
+            -> moment of virtual machine from one host to other on ***power off state ***
+            -> VM must be power off during migration
+            -> cold migration can be move a virtual machine between data center as long as both data center 
+                are on the same VCenter Server.
+            -> failure chance is less as compare to the hot migration.
+            
+        2. Suspended Migration:
+        ----------------------
+            ->  moment of virtual machine from one host to other on ***suspended state ***
+            -> suspended state like pushed state and it will resume after successfully migration.
+            -> suspended migration and VMotion both consider as hot migration because here machine present in running condition.
+            -> primary reason to use this for troubleshooting
+
+        3. VMotion:
+        -----------
+            -> also called live migration 
+            -> this process done in the running condition we no need to stop the machine for a single time only.
+            -> downtime near to zero.
+            ->  moment of virtual machine from one host to other on ***power on state ***
+            -> here ESXi not change only datastore change .
+        
+        4. Physical to Virtual
+        ----------------------
+            -> here while running physical machine, we are creating copy of the physical machine into virtual machine while running 
+                state and once done after that switch machine from physical to virtual machine.
+        
+        5. Virtual to Virtual
+        ---------------------
+            -> it is similar to P2V only difference is that source machine already on virtual host.
+
+    Feature Of VMware:
+    ------------------
+        1. High Availability (HA)
+        --------------------
+            -> before HA there is a high chance of vm failure if anything wrong happen with the ESXi hosts.
+            -> in HA when the ESXi host crashed it will automatically check and restart the process.
+            -> downtime is very less in HA.
+            -> HA is a complete automated process and it will continue check the vm with the help of packet send if we 
+                did not get responsible from vm then after few continuous failure it'll automatically start creation of new vm.
+            -> no need to admin interference .
+            -> no passive standby ESXi host required nighter any extra VM.
+            -> the VM which parent has been crashed then will automatically start on new cluster.
+            -> HA doesn't use VMotion.
+            -> for HA we need following things:
+                1. Cluster.
+                2. Shred Storage
+                3. VCenter Server configure for the Environment.
+            -> shared storage help in the failed over (means when on vm not working then automatically switch on another vm).
+        2. Fault Tolerance:
+        ------------------
+            -> aim is similar to HA but in term of Availability it's provide ** 0% downtime ** because machine doesn't goes
+                down and restart.
+            -> in fault tolerance we are having one standby VM so we can switch when any failure occurs.
+            -> used in mission critical application.
+            -> in fault tolerance we are using *** lockstep technology ***
+            -> FT used DRS (distribute resource Scheduler)
+            -> in this fault tolerance technique we always used two VM primary and secondary. if primary VM failed then secondary
+                become primary and in place of secondary a new machine will created and now this both machine will connect with each other 
+                by using lockstep technology.
+            -> so now very important thing come into picture that primary and secondary VM should not be on same hosts otherwise if hosts failure 
+                occurs then both VM become useless.
+        3. DRS (Distributed Resource Scheduler):
+        ----------------------------------------
+            -> it will manage the load between the multiple ESXi hosts.
+
+
+Addressing:
+------------
+    -> to know the the location and to communicate between the device this concept came into the picture.
+    -> following diagram show the classification of Addressing
+
+                            Addressing
+                            ---------
+                                |
+                ----------------------------------------   
+                |                                       |
+            Physical Address                    Logical Address 
+        (abstract address/like name)            (actual address 44, Jhotwara , jaipur, rajasthan)
+                |                                       |
+            Mac address                                 |
+              (48 bits)                 ---------------------------------
+                                        |                               |
+                                        ipv4                            ipv6
+                                        |                               |
+                        --------------------------------          --------------------------------
+                        |                               |         |                               |
+                        public ip                   private ip   public ip                   private ip
+    
+
+        KEY DIFFERENCE
+        ----------------
+            IPv4 is 32-Bit IP address whereas IPv6 is a 128-Bit IP address.
+            IPv4 is a numeric addressing method whereas IPv6 is an alphanumeric addressing method.
+            IPv4 binary bits are separated by a dot(.) whereas IPv6 binary bits are separated by a colon(:).
+            IPv4 offers 12 header fields whereas IPv6 offers 8 header fields.
+            IPv4 supports broadcast whereas IPv6 doesn’t support broadcast.
+            IPv4 has checksum fields while IPv6 doesn’t have checksum fields
+            When we compare IPv4 and IPv6, IPv4 supports VLSM (Variable Length Subnet Mask) whereas IPv6 doesn’t support VLSM.
+            IPv4 uses ARP (Address Resolution Protocol) to map to MAC address whereas IPv6 uses NDP (Neighbour Discovery Protocol) to map to MAC address.
+
+
+        Features of IPv4:
+        --------------------
+            -> Connectionless Protocol
+            -> Allow creating a simple virtual communication layer over diversified devices
+            -> It requires less memory, and ease of remembering addresses
+            -> Already supported protocol by millions of devices
+            -> Offers video libraries and conferences
+                -> IPv4 (internet protocol)
+            -> 32 bit logical address 
+            -> 4 Octet used by IPv4
+            -> ipv4 having 5 class address.
+                Class A:
+                    1.0.0.0 to 126.0.0.0
+                
+                Class B:
+                    128.0.0.0 to 191.255.0.0
+
+                Class C:
+                    192.0.0.0 to 223.255.255.0
+                
+                class D:
+                    224 - 239 => use for MultiCast generally we don't use this.
+                
+                Class E:
+                    240 - 255 => use for Research generally we don't use this.
+            
+            -> 127.0.0.0 to 127.255.255.255 are reserved for loopback address. loopback address are generally 
+                used to to check the computer network is working fine or not. let suppose internet is not working
+                in my computer so if i want to check then from terminal i have to ping 127.0.0.0 and if response 
+                coming that means laptop network interface card working fine.   
+                
+                How to find network id'S
+
+                Class A : 
+                            -----------------
+                            | N | H | H | H |
+                            -----------------
+                Class B : 
+                            -----------------
+                            | N | N | H | H |
+                            -----------------
+                Class c : 
+                            -----------------
+                            | N | N | N | H |
+                            -----------------
+                here N = network bit / which represented by 1 and H = host bit / which represented by 0
+
+
+        Features of IPv6:
+        -----------------
+            -> Hierarchical addressing and routing infrastructure
+            -> Stateful and Stateless configuration
+            ->Support for quality of service (QoS)
+            -> An ideal protocol for neighboring node interaction
+
+
+        public ip and elastic ip 
+            -> public ip is a unique address of device which is 32 bit long
+            -> on ec2 when we restart over instance then there may be a chance to change the public ip address
+            -> elastic ip are similar to the public ip but it didn't change on instance restart 
+            -> elastic ip also called static public ip.
+
+AutoScaling in Aws (AS):
+-------------------
+    -> creating group of ec2 instance that can scale up and down according to condition you set.
+    -> enable elasticity by scaling  horizontally through adding and terminating EC2 instance.
+    -> Autoscaling ensure that you have right no of AWs EC2 instance for your need at all time.
+    -> AutoScaling help you to save cost by curring down the no of resource when not needed 
+        and scale up resource when only needed.
+    -> AutoScaling Components 
+    ------------------------
+        1. Launch Configuration 
+            -> Like instance type, AMI, key-pair, security groups.
+        2. AutoScaling group
+            -> Group name, group size, vpc, subnet, health checkup
+        3. Scaling Policy
+            -> metric type (mainly having for type we focus on CPU utilization )
+            -> target Value.
+    -> if AutoScaling find that number of EC2 instance launch by ASG  into
+        multiple AZs is not balanced (EC2 instance are not equally distributed )
+        then it will perform Re-balancing.
+    -> AS always try to balance all the instance distribution equally across AZs.
+    -> while Re-balancing  AS first launch the new instance at low instance side after
+        that delete the instance from the high instance side.
+    -> What cause Imbalance of EC2:
+    --------------------------------
+        ->if we delete some subnets /AZ from ASG
+        ->manually Request to terminate the EC2 from ASG.
+        -> for few AZ capacity is full then ASG have to create somewhere else.
+
+    -> We can attach a Running EC2 instance to an ASG by using AWS Console or Client
+        if the following condition are met:
+
+        -> Ec2 instance must be in running state(nit terminate/stop)
+        -> AMI used to launch the EC2 still EXist 
+        -> instance not be part of any other ASG
+        -> instance is in the same AZ of the ASG if instance not present of attach AZ then it cannot be attach to ASG.
+        -> ** if the existing EC2 instance under the ASG want to increase the instance from the 
+            max limit then cannot do but while perform the AS we can increase the instance by 
+            10% of MAx limit or 1instance for temp bases.****
+    -> you can manually remove ec2 instance from ASG using console or Client
+    -> you can manage detached instance independently or attach it to another ASG
+    -> when you detach an instance  you have options to decrease the AS group desired Capacity
+        -> if you don't decrease the capacity the ASG auto increase the instance to desired 
+            no of instance
+    -> if you DELETE ASG then MIN,MAX,Desired Capacity set to 0. so whatever instance 
+        created by this ASG will auto delete, so now if you don't want to delete then first 
+        detached all the required instance from ASG then delete the ASG.
+    -> How ELB(elastic load balancer will work with my ASG)
+        -> we can attach one or more ELB to our ASG
+        -> the ELB should be present in same region as ASG
+        -> once ELB added after that ASG create any instance that will automatically
+            add wil ELB.
+    ->  In the following 4 cases ASG send the email notification 
+        -> an instance is launched
+        -> an instance is terminated
+        -> an instance failed to launched
+        -> an instance failed to terminated
+    -> Merging AutoScaling Group 
+        -> merging can only done by the CLI not form the Console
+        -> if you want to merge 2 ASG then first attach all the instance to one ASG and after that remove the 
+            unwanted ASG.
+    -> it is always recommended that use the scale-in and scale-out in pairs standalone can leads to pay high cost or server crash.
+    -> if your Launch configuration for ASG done by the CLI then heath-Checkup set 1min(60 sec) and if done by console then it will
+        set default 300Sec. in Cli you have to pay charges but in console with only default config it won't charge.
+    
+    
+    -> StandBy State Of ASG instances:
+    ---------------------------------
+        -> if you have put any ASG instance on standby then then ASG not sending any traffic to these instances.
+        -> ASG don't do health checkup of standby instance
+        -> AWS will take charge of these instance although ASG not sending any traffic because you have put standby manually.
+
+    
+    ->Scaling Police :
+    ------------------- 
+                                                        Scaling Police
+                                                            |
+                            -------------------------------------------------------------
+                            |                                                           |
+                            |                                                       Dynamic
+                        Manually                        ----------------------------------------------------------------
+                        (Min,Max,Desired fixed)         |                 |                        |                    |
+                                                    Target Tracking     Simple Scaling        Step Scaling     Predictive / cyclic / scheduled    
+
+
+    -> Manually ASP:
+    ----------------
+        -> keep as it is / not change on any condition 
+        -> initially we have fixed all the things.
+
+    -> Dynamic:
+    -----------
+        1. Target Tracking:
+        --------------------
+            -> AWS give AC example where we are setting a temp limit so if outside whether temp increase/decrease it will auto adjust.
+            -> same in target tracking suppose we have put the CPU utilization 70% so whenever it increase it will increase instance 
+                or whenever decrease then decrease instance so it will adjust auto and try to maintain near 70% or equal 70%.
+
+        2. Simple Scaling:
+        -----------------
+            -> it is similar to Target Tracking BUT MAIN difference it that in initially we put condition that if CPU utilization
+                increase a certain limit then increase a FIXED no of instance (suppose 4 instance)  so it won't check and directly 
+                create 4 instance.
+            -> here it follow cool down period and warm-up period
+                cool down :- create hone k baad ek time tak wait and watch so we can check how our load distribution working at this
+                                time we ignore all the request
+                Warm Up :  after creation instance will take time to come in fully working condition and load distribution.
+
+        3. Step Scaling:
+        -----------------
+            -> similar to first one only difference is that here cool down time not consider. it will create instance automatically
+                without ignoring any request.
+        4. Predictive : 
+        --------------
+            -> here we have predict early and schedule our ASG to increase/ decrease instance.
+
+
+Elastic Load blanching (ELB):
+--------------------------------
+    -> Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances,
+         containers, IP addresses, Lambda functions, and virtual appliances.
+    ->  It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones.
+    -> it provide 4 type of load balancer:
+    ---------------------------------------
+        -> 1. Application Load balancer
+        -> 2. Network Load balancer
+        -> 3. GateWay Load balancer
+        -> 4. Custom Load balancer
+    ->  provide features like high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.
+    -> each request resolve in 3 step
+            -> request resolve in public DNS 
+            -> public DNS resolve in ELB DNS request 
+            -> ELB DNS request resolve in IP.
+    -> if any instance is connected through the ELB then it is not  necessary that each request come through the ELB.
+        if you are using appliances ELB then rest other request come directly.
+
+    -> How to check Health Of ELB 
+
+
+
+    1. Application Load balancer:
+    ------------------------------
+        -> 7 layer of OSI model
+        -> follow the HTTP / HTTPS protocol
+    
+    2. Network Load balancer
+    ----------------------------
+        -> 4  Layer Of OSI Model
+        -> follow TCP / UDP / TLS 
+    3. Custom Load balancer:
+    ------------------------
+        -> work on both 7 layer / 4 layer
+        -> Http / Https / tcp / udp / tls.
+
+
+VPC (Virtual Private Cloud) :
+------------------------------
+    -> A Virtual Private Cloud is a Virtual Network which is having traditional Network 
+        component that you operate in your own data center with the benefits of using the 
+        scalable infra-structure. of aws.
+    -> it is logically isolated from other virtual network on AWS cloud
+    -> Max 5 VPC can be created and 200 subnet in 1 VPC.
+    -> we can allocate MAX 5 Elastic IP per region.
+    -> Once we created VPC, DHCP(dynamic host control protocol), NACL (network access control protocol)
+        security group will be auto generated.
+    -> VPC is region Specific. it can control Multiple AZs.
+    -> Subnet is AZs Specific. 
+    -> once you created VPC after that you cannot change its CIDR (Classless Inter-Domain Routing ) block Range
+    -> if you need a different CIDR Size (10.0.1.0/24 agar 24 se 16 krna h to new banawo), then create new VPC
+    -> on different AZs of same region you cannot give same CIDR.
+    
+    -> ** net gateway always created in public subnet but used for private subnet **
+    
+    -> Components Of VPC:
+    ------------------------
+        -> CIDR & IP Address subnets
+        -> Implied Router and Routing Table
+        -> Internet GateWay
+        -> Security groups
+        -> Network ACL
+        -> Virtual Private GateWay
+        -> Peering Connections
+        -> Elastic Ip.
+
+
+    Type Of VPC:
+    --------------
+                                            VPC
+                                        ----------
+                                            |
+                            -----------------------------------------
+                            |                                       |
+                        Default VPC                             Custom VPC
+
+    
+
+    Default VPC:
+    -------------
+        1. Automatically created in each region when account  is created.
+        2. Has Default CIDR, Security groups, NACL, Routing table Settings.
+        3. Has internet gateway by default (each ec2 instance which having this VPC can directly access through internet)
+    
+    Custom VPC:
+    -----------
+        -> this is manually created by the Account Owners
+        -> Aws account owner which creating this custom vpc can decide CIDR.
+        -> by default when we are creating this VPC then don't have internet gateway. we can add later after creation.
+        -> when creation done automatically security group, route table,  network ACL
+        -> *** when you create VPC, you must use CIDR range between /16 to /28 in ipv4 address. if you use anything else from this
+                range then won't be acceptable ***.
+        -> the first four and last ip cannot use 
+            example: 
+                    10.0.0.0/16 
+                    then 
+                    10.0.0.0/16  -> network address
+                    10.0.0.1/16  -> Reserved by aws for vpc route
+                    10.0.0.2/16  -> Reserved by aws ip address of dns server
+                    10.0.0.3/16  -> Reserved by aws for future use.
+
+                    10.0.0.255/16 -> broadcast.
+
+                    we cannot use this 5 ip address.
+
+
+
+    Steps to create VPC:
+    -----------------------
+                    
+                    create vpc ----> create subnet ----> internet gateway -----> Route table
+
+
+    Public Subnet 
+    ----------------
+            -> if a subnet's traffic is routed to an internet gateway (means it know the path to the internet gateway) the subnet 
+                is know as public gateway. 
+            -> if you want you instance (in public subnet) can communicate with internet gateway then it must have public ip or 
+                elastic ip.
+
+    Private Subnet:
+    --------------
+            -> you subnet cannot connect to the internet gateway.
+
+    
+    Implied Router and Routing Table :
+    ----------------------------------
+        -> Implied Router means a virtual router which help to communicated between different subnets.
+        -> it connect different AZ between and also connect VPC to internet gateway.
+        -> you can have 200 route table per VPC
+        -> you can have 50 entry in each route table
+        -> ***** each subnets must be associate with a single Routing table at a time. *****
+        -> if you don't specify a subnet  to a route table associate, the subnet will associate with the default VPC route table.
+        -> you can edit main route table but you cannot delete
+        -> in case you want to delete main route table then first create a custom route table and make it main table
+            after that you can delete.
+    
+    Internet GateWay:
+    -----------------
+        -> it is also a virtual route which helps VPC to  connect from internet.
+        -> Default VPC already attached with internet gateway.
+        -> but if you created custom VPC then must have to attach internet gateway to access internet.
+        -> ensure that your subnet route table point to the internet gateway 
+        -> it provide NAT(nat gateway) between your private and public IPV4.( means public to private ip or vice-versa will do internet gatway )
+
+
+    NAT GateWay:
+    ------------
+        -> you can use a network access transmission gateway to provide capability to the private subnet instance to connect to
+            the internet.
+        -> with the help of NAT private subnet instance can connect through the internet but any outside person cannot access this 
+            instance.
+        -> AWs will charge for creating NAT and as well whatever data you are sending through it that is also chargeable.
+        -> NAT always create in Public Subnet 
+        -> NAT always use Elastic IP never use public ip.
+
+
+    -> VPC Pairing Lab:
+    --------------------
+        -> create VPC-1 -> create Subnet1 -> create internet gateway -> create Route table -> create ec2 instance in subnet1.
+        -> create VPC-2 -> create Subnet2 -> create internet gateway -> create Route table -> create ec2 instance in subnet2.
+
+        -> now click on vpc pairing -> select request vpc and response vpc -> create pairing
+        -> now add this pair in both route table -> in first route table add second one and in second add first one.
+        -> in security group add ICMP port allow.
+        -> now test everything will work fine.

@@ -1,0 +1,74 @@
+7-8 Jun-2021:
+-----------
+task:
+    1. public ip and elastic ip (done)
+        -> public ip is a unique address of device which is 32 bit long
+        -> on ec2 when we restart over instance then there may be a chance to change the public ip address
+        -> elastic ip are similar to the public ip but it didn't change on instance restart 
+        -> elastic ip also called static public ip.
+    2. different type of ec2 instance
+    3. where we use. which type use.
+    4. next load blanching.
+
+9-10-Jun-2021:
+-----------------
+    -> net gateway (done)
+    -> private subnet (done)
+    -> public subnet (done)
+    -> ELB complete (done)
+    Implied Router and Routing Table (done)
+
+11-14 Jun 2021:
+-------------------
+    -> ip of ELb / why DNS 
+    -> terraform
+
+    -> power shell DSC (extra time)
+
+14-15-Jun 2021:
+--------------------
+    => terraform backend (done)
+    => locking (done)
+    => shift variable (done)
+    => provisioner in terraform (done)
+    
+    => map AMi according to region
+    => function in terraform (done )
+
+
+15-Jun
+---------
+ansible (why / how)
+inv files 
+handler
+yum files / structure 
+roles 
+play book 
+
+
+ansible facts 
+
+
+
+terrform ec2-creation
+provsion ki help se httpd install
+create files on each node on web root directectory(html).
+
+
+create ec2 instance with "different AMI / ubantu or amazon linux" and install apache server and create one file also.
+read about docker 
+
+kubernet
+azur devops
+
+
+
+
+
+
+
+
+ 
+
+
+
